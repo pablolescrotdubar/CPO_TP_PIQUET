@@ -16,15 +16,15 @@ public class TP2_relation_1_PIQUET {
      */
     public static void main(String[] args) {
         
-        Voiture uneClio = new Voiture ("Clio", "Renault", 5 );
-        Voiture uneAutreClio = new Voiture ("Clio", "Renault", 5 );
-        Voiture une2008 = new Voiture ("2008", "Peugeot", 6 );
-        Voiture uneMicra = new Voiture ("Micra", "Nissan", 4 );
+        Voiture uneClio = new Voiture ("Clio", "Renault", 5, null );
+        Voiture uneAutreClio = new Voiture ("Clio", "Renault", 5, null );
+        Voiture une2008 = new Voiture ("2008", "Peugeot", 6, null );
+        Voiture uneMicra = new Voiture ("Micra", "Nissan", 4, null );
         
-        Personne bob = new Personne("Bobby", "Sixkiller");
-        Personne reno = new Personne("Reno", "Raines");
+        Personne bob = new Personne("Bobby", "Sixkiller", 0);
+        Personne reno = new Personne("Reno", "Raines", 0);
         
-        //System.out.println("liste des voitures disponibles "+ uneClio  + "\n" + uneAutreClio   + "\n" + une2008   + "\n" + uneMicra ); 
+        System.out.println("liste des voitures disponibles "+ uneClio  + "\n" + uneAutreClio   + "\n" + une2008   + "\n" + uneMicra ); 
         
         bob.liste_voitures[0] = uneClio ;
         bob.nbVoitures = 1 ;
@@ -45,6 +45,8 @@ public class TP2_relation_1_PIQUET {
         reno.nbVoitures = 2 ;
         uneMicra.Proprietaire = reno ; 
         System.out.println("la deuxieme voiture de Reno est " + reno.liste_voitures[1]);
+        
+        System.out.println(bob.ajouter_voiture(uneAutreClio));
     }
     
 }
