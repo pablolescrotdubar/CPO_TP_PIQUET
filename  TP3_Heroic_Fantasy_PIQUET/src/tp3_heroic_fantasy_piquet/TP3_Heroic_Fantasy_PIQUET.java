@@ -32,9 +32,9 @@ public class TP3_Heroic_Fantasy_PIQUET {
         tab1.add(baton1);
         tab1.add(baton2);
         
-        for (int i = 0 ; i<tab1.size() ; i++) {
+        /*for (int i = 0 ; i<tab1.size() ; i++) {
             System.out.println(tab1.get(i).toString());
-        }
+        }*/
         
         Magicien magicien1 = new Magicien("Gandalf",65,true);
         Magicien magicien2 = new Magicien("Garcimore",44,false);
@@ -47,9 +47,14 @@ public class TP3_Heroic_Fantasy_PIQUET {
         tab2.add(guerrier1);
         tab2.add(guerrier2);
         
-        for (int i = 0 ; i<tab2.size() ; i++) {
+        /*for (int i = 0 ; i<tab2.size() ; i++) {
             System.out.println(tab2.get(i).toString());
-        }
+        }*/
+        
+        
+        
+        
     }
+    
     
 }
