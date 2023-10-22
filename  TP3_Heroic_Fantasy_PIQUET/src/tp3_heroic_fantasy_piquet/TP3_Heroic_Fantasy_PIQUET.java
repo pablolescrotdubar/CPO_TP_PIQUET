@@ -4,6 +4,12 @@
  */
 package tp3_heroic_fantasy_piquet;
 
+import Personnages.Guerrier;
+import Personnages.Magicien;
+import Personnages.Personnage;
+import Armes.Epee;
+import Armes.Baton;
+import Armes.Arme;
 import java.util.ArrayList;
 
 /**
@@ -13,20 +19,37 @@ import java.util.ArrayList;
  */
 public class TP3_Heroic_Fantasy_PIQUET {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         Epee epee1 = new Epee("Excalibur",7,5);
         Epee epee2 = new Epee( "Durandal",4,7);
         Baton baton1 = new Baton( "Chêne", 4, 5);
         Baton baton2 = new Baton( "Charme", 5, 6);
         
-        ArrayList<Arme> tab = new ArrayList<Arme>();
-        tab.add(epee1);
-        tab.add(epee2);
-        tab.add(baton1);
-        tab.add(baton2);
+        ArrayList<Arme> tab1 = new ArrayList<Arme>();
+        tab1.add(epee1);
+        tab1.add(epee2);
+        tab1.add(baton1);
+        tab1.add(baton2);
+        
+        for (int i = 0 ; i<tab1.size() ; i++) {
+            System.out.println(tab1.get(i).toString());
+        }
+        
+        Magicien magicien1 = new Magicien("Gandalf",65,true);
+        Magicien magicien2 = new Magicien("Garcimore",44,false);
+        Guerrier guerrier1 = new Guerrier("Conan",78,false);
+        Guerrier guerrier2 = new Guerrier("Lannister",45,true);
+        
+        ArrayList<Personnage> tab2 = new ArrayList<Personnage>();
+        tab2.add(magicien1);
+        tab2.add(magicien2);
+        tab2.add(guerrier1);
+        tab2.add(guerrier2);
+        
+        for (int i = 0 ; i<tab2.size() ; i++) {
+            System.out.println(tab2.get(i).toString());
+        }
     }
     
 }
