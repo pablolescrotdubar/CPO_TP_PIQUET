@@ -36,23 +36,46 @@ public class TP3_Heroic_Fantasy_PIQUET {
             System.out.println(tab1.get(i).toString());
         }*/
         
-        Magicien magicien1 = new Magicien("Gandalf",65,true);
+        /*Magicien magicien1 = new Magicien("Gandalf",65,true);
         Magicien magicien2 = new Magicien("Garcimore",44,false);
         Guerrier guerrier1 = new Guerrier("Conan",78,false);
-        Guerrier guerrier2 = new Guerrier("Lannister",45,true);
+        Guerrier guerrier2 = new Guerrier("Lannister",45,true);*/
         
-        ArrayList<Personnage> tab2 = new ArrayList<Personnage>();
+        /*ArrayList<Personnage> tab2 = new ArrayList<Personnage>();
         tab2.add(magicien1);
         tab2.add(magicien2);
         tab2.add(guerrier1);
-        tab2.add(guerrier2);
+        tab2.add(guerrier2);*/
         
         /*for (int i = 0 ; i<tab2.size() ; i++) {
             System.out.println(tab2.get(i).toString());
         }*/
         
+        Guerrier Abdellah = new Guerrier("Abdellah",90, true);
+        Magicien Winston = new Magicien("Winston",100, true);
+        Epee epeeAbdellah = new Epee( "Glaive",10,70);
+        Epee epeeWinston = new Epee( "Ker",15,98);
+        Epee epeeAnneSophie = new Epee( "Developpement limité",10,70);
+        Baton batonAbdellah = new Baton( "Brindille", 4, 5);
+        Baton batonWinston = new Baton( "Boulot", 4, 5);
+        Baton batonAnneSophie = new Baton( "Buisson", 4, 5);
         
+        Abdellah.AjoutArme(batonAbdellah);
+        Abdellah.AjoutArme(epeeAbdellah);
+        Abdellah.AjoutArme(epeeWinston);
+        Abdellah.equiperPersonnage(epeeAbdellah);
         
+        Winston.AjoutArme(batonWinston);
+        Winston.AjoutArme(batonAnneSophie);
+        Winston.AjoutArme(epeeAnneSophie);
+        
+        int compteur = 0;
+        for (int i = 0 ; i<Winston.getArmesPossedees().size() ; i++) {
+            if (Winston.getArmesPossedees().get(i) instanceof Baton == true) {
+                compteur += 1;
+            }
+        }
+        System.out.println("Le magicien a " + compteur + " armes preferees.");
         
     }
     
