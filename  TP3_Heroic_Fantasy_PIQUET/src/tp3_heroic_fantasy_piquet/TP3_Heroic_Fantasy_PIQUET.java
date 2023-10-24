@@ -51,7 +51,7 @@ public class TP3_Heroic_Fantasy_PIQUET {
             System.out.println(tab2.get(i).toString());
         }*/
         
-        Guerrier Abdellah = new Guerrier("Abdellah",90, true);
+        /*Guerrier Abdellah = new Guerrier("Abdellah",90, true);
         Magicien Winston = new Magicien("Winston",100, true);
         Epee epeeAbdellah = new Epee( "Glaive",10,70);
         Epee epeeWinston = new Epee( "Ker",15,98);
@@ -81,7 +81,26 @@ public class TP3_Heroic_Fantasy_PIQUET {
         
         System.out.println("Le nombre de personnages est : " + Personnage.getNbpersonnages());
         System.out.println("Le nombre de magiciens est : " + Magicien.getNbmagiciens());
+        System.out.println("Le nombre de guerriers est : " + Guerrier.getNbguerriers());*/
+        
+        Guerrier Abdellah = new Guerrier("Abdellah",90, true);
+        Magicien Winston = new Magicien("Winston",100, true);
+        
+        System.out.println(Abdellah.toString());
+        System.out.println(Winston.toString());
+        
+        System.out.println("Le nombre de personnages est : " + Personnage.getNbpersonnages());
+        System.out.println("Le nombre de magiciens est : " + Magicien.getNbmagiciens());
         System.out.println("Le nombre de guerriers est : " + Guerrier.getNbguerriers());
+        
+        Abdellah.seFatiguer();
+        System.out.println(Abdellah.toString());
+        Abdellah.estVivant();
+        Abdellah.attaquer(Winston);
+        
+        System.out.println(Abdellah.toString());
+        System.out.println(Winston.toString());
+        
     }
     
     
