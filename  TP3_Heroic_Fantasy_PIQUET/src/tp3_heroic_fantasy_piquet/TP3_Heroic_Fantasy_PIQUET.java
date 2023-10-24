@@ -75,8 +75,13 @@ public class TP3_Heroic_Fantasy_PIQUET {
                 compteur += 1;
             }
         }
-        System.out.println("Le magicien a " + compteur + " armes preferees.");
+        //System.out.println("Le magicien a " + compteur + " armes preferees.");
+        System.out.println(Abdellah.toString());
+        System.out.println(Winston.toString());
         
+        System.out.println("Le nombre de personnages est : " + Personnage.getNbpersonnages());
+        System.out.println("Le nombre de magiciens est : " + Magicien.getNbmagiciens());
+        System.out.println("Le nombre de guerriers est : " + Guerrier.getNbguerriers());
     }
     
     
