@@ -15,12 +15,20 @@ public class LightOff_PIQUET_version_console {
      */
     public static void main(String[] args) {
         
-        CelluleLumineuse cellule1 = new CelluleLumineuse(true);
-        System.out.println(cellule1.toString());
-        cellule1.activerCellule();
-        System.out.println(cellule1.toString());
-        cellule1.estEteint();
-        System.out.println(cellule1.toString());
+        GrilledeJeu grille = new GrilledeJeu(4 ,4);
+        /*grille.activerLigneColonneOuDiagonaleAleatoire();
+        System.out.println(grille);
+        grille.activerLigneColonneOuDiagonaleAleatoire();
+        System.out.println(grille);
+        grille.activerLigneColonneOuDiagonaleAleatoire();
+        System.out.println(grille);
+        grille.activerLigneColonneOuDiagonaleAleatoire();*/
+        grille.melangerMatriceAleatoirement(3);
+        System.out.println(grille);
+        /*grille.melangerMatriceAleatoirement(5);
+        grille.eteindreToutesLesCellules();
+        grille.activerLigneDeCellules(0);
+        System.out.println(grille.toString());*/
     }
     
 }
