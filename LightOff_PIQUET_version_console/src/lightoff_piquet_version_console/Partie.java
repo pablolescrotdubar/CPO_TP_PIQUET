@@ -14,9 +14,10 @@ public class Partie {
     
     GrilledeJeu grille;
     int nbCoups;
+    int n;
 
-    public Partie() {
-        this.grille = new GrilledeJeu(int n; int n);
+    public Partie(int n) {
+        this.grille = new GrilledeJeu(n, n);
         this.nbCoups = 0;
     }
     
@@ -27,8 +28,64 @@ public class Partie {
     public void lancerPartie() {
         Scanner sc = new Scanner(System.in);
         this.initialiserPartie();
-        System.out.println(this);
-        System.out.println("\n"+"Veuillez choisir un coup : L pour une lignes à activer, C pour une colonne et D pour une diagonale :");
-        String cas = sc.nextString();
+        System.out.println(this.grille.toString());
+        while (this.grille.cellulesToutesEteintes() == false) {
+            System.out.println("\n"+"Veuillez choisir un coup : L pour une lignes a activer, C pour une colonne et D pour une diagonale :");
+            char cas = sc.next().charAt(0);
+            while (cas != 'L' && cas != 'C' && cas != 'D') {
+                System.out.println("\n"+"Veuillez reessayer :");
+                cas = sc.next().charAt(0);
+            }
+            switch (cas) {
+                case 'L' :
+                    System.out.println("\n"+"Entrez le numero de la ligne a activer :");
+                    int numligne = sc.nextInt();
+                    while (numligne < 0 || numligne > this.grille.nbLignes - 1) {
+                        System.out.println("\n"+"Veuillez reessayer :");
+                        numligne = sc.nextInt();
+                    }
+                    this.grille.activerLigneDeCellules(numligne);
+                    nbCoups++;
+                    System.out.println("\n"+"Nombre de coups realises : "+nbCoups);
+                    System.out.println(this.grille);
+                    break;
+                case 'C' :
+                    System.out.println("\n"+"Entrez le numéro de la colonne a activer :");
+                    int numcolonne = sc.nextInt();
+                    while (numcolonne < 0 || numcolonne > this.grille.nbColonnes - 1) {
+                        System.out.println("\n"+"Veuillez reessayer :");
+                        numcolonne = sc.nextInt();
+                    }
+                    this.grille.activerColonneDeCellules(numcolonne);
+                    nbCoups++;
+                    System.out.println("\n"+"Nombre de coups realises : "+nbCoups);
+                    System.out.println(this.grille);
+                    break;
+                case 'D' :
+                    System.out.println("\n"+"Entrez DD pour activer la diagonale decendante et DM pour la diagonale montante :");
+                    String casdiag = sc.nextLine();
+                    while (casdiag != "DD" || casdiag != "DM") {
+                        System.out.println("\n"+"Veuillez reessayer :");
+                        casdiag = sc.nextLine();
+                    }
+                    switch (casdiag) {
+                        case "DD" :
+                            this.grille.activerDiagonaleDescendante();
+                            nbCoups++;
+                            System.out.println("\n"+"Nombre de coups realises : "+nbCoups);
+                            System.out.println(this.grille);
+                            break;
+                        case "DM" :
+                            this.grille.activerDiagonaleMontante();
+                            nbCoups++;
+                            System.out.println("\n"+"Nombre de coups realises : "+nbCoups);
+                            System.out.println(this.grille);
+                            break;
+                    }
+        
+            }
+        }
+        System.out.println(this.grille);
+        System.out.println("\n"+"Bravo ! Vous avez gagne en "+nbCoups+" coups !");
     }
-}
+}    
