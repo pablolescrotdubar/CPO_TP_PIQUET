@@ -4,31 +4,40 @@
  */
 package lightoff_piquet_version_console;
 
+import java.util.Scanner;
+
 /**
  *
  * @author nicol
  */
 public class LightOff_PIQUET_version_console {
+    
+    /**
+        * Demande à l'utilisateur la taille de grille qu'il souhaite
+        * @return Retourne la taille de la grille saisie par l'itilisateur
+        */
+        static int QuelleTailleDeGrille() {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Quelle est la dimension de la grille que vous souhaitez entre 1 et 10 ?");
+            int taille = sc.nextInt();
+            while (taille < 1 || taille > 10) {
+                System.out.println("Veuillez reessayer et saisir une taille entre 1 et 10 :");
+                taille = sc.nextInt();
+            }
+            return taille;
+        }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        GrilledeJeu grille = new GrilledeJeu(4 ,4);
-        /*grille.activerLigneColonneOuDiagonaleAleatoire();
-        System.out.println(grille);
-        grille.activerLigneColonneOuDiagonaleAleatoire();
-        System.out.println(grille);
-        grille.activerLigneColonneOuDiagonaleAleatoire();
-        System.out.println(grille);
-        grille.activerLigneColonneOuDiagonaleAleatoire();*/
-        grille.melangerMatriceAleatoirement(3);
-        System.out.println(grille);
-        /*grille.melangerMatriceAleatoirement(5);
-        grille.eteindreToutesLesCellules();
-        grille.activerLigneDeCellules(0);
-        System.out.println(grille.toString());*/
+        int taille = QuelleTailleDeGrille();
+        Partie partie = new Partie(taille);
+        partie.lancerPartie();
+        
+        
+        
     }
     
 }
