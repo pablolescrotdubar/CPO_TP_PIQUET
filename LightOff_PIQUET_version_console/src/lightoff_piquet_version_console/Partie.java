@@ -28,21 +28,34 @@ public class Partie {
     
     /**
      * Initialise la grille de jeu en mélangeant aléatoirement la grille d'un nombre de coups donné
+     * @param nbTours Nombre de coups à effectuer pour mélanger la grille
      */
-    public void initialiserPartie() {
-        this.grille.melangerMatriceAleatoirement(5);
+    public void initialiserPartie(int nbTours) {
+        this.grille.melangerMatriceAleatoirement(nbTours);
     }
     
+   
     /**
      * Affiche l'état initial de la grille et effectue les coups demandés par l'utilisateur jusqu'à ce que
-     * toutes les cellules soient éteintes.
+     * toutes les cellules soient éteintes ou que le nombre de coups autorisé soit dépassé.
      */
     public void lancerPartie() {
         Scanner sc = new Scanner(System.in);
-        this.initialiserPartie();
+        System.out.println("Quel niveau de difficulte souhaitez-vous entre 1 et 10 ?");
+        int niv = sc.nextInt();
+        while (niv < 1 || niv > 10) {
+            System.out.println("Veuillez reessayer et saisir un nombre entier entre 1 et 10 :");
+            niv = sc.nextInt();
+        }
+        this.initialiserPartie(niv);
         System.out.println(this.grille.toString());
+        System.out.println("Si vous dépassez "+niv+" coups, la partie sera perdue ! Soyez astucieux...");
         while (this.grille.cellulesToutesEteintes() == false) {
-            System.out.println("\n"+"Veuillez choisir un coup : L pour une lignes a activer, C pour une colonne et D pour une diagonale :");
+            if (nbCoups >= niv) {
+                System.out.println("Vous avez depasse le nombre de coups autorise... La partie est perdue !");
+                break;
+            }
+            System.out.println("\n"+"Veuillez choisir un coup : L pour une ligne a activer, C pour une colonne et D pour une diagonale :");
             char cas = sc.next().charAt(0);
             sc.nextLine();
             while (cas != 'L' && cas != 'C' && cas != 'D') {
@@ -64,7 +77,7 @@ public class Partie {
                     System.out.println("\n"+"Nombre de coups realises : "+nbCoups);
                     break;
                 case 'C' :
-                    System.out.println("\n"+"Entrez le numéro de la colonne a activer :");
+                    System.out.println("\n"+"Entrez le numero de la colonne a activer :");
                     int numcolonne = sc.nextInt();
                     while (numcolonne < 0 || numcolonne > this.grille.nbColonnes - 1) {
                         System.out.println("\n"+"Veuillez reessayer :");
@@ -99,7 +112,9 @@ public class Partie {
         
             }
         }
-        System.out.println(this.grille);
-        System.out.println("\n"+"Bravo ! Vous avez gagne en "+nbCoups+" coups !");
+        if (nbCoups < niv) {
+            System.out.println(this.grille);
+            System.out.println("\n"+"Bravo ! Vous avez gagne en "+nbCoups+" coups !");
+        }
     }
 }    
