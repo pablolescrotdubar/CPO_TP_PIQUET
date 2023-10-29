@@ -49,10 +49,10 @@ public class Partie {
         }
         this.initialiserPartie(niv);
         System.out.println(this.grille.toString());
-        System.out.println("Si vous dépassez "+niv+" coups, la partie sera perdue ! Soyez astucieux...");
+        System.out.println("Si vous depassez "+niv+" coups, la partie sera perdue ! Aller on se depeche la !");
         while (this.grille.cellulesToutesEteintes() == false) {
-            if (nbCoups >= niv) {
-                System.out.println("Vous avez depasse le nombre de coups autorise... La partie est perdue !");
+            if (nbCoups == niv && this.grille.cellulesToutesEteintes() == false) {
+                System.out.println("Vous avez depasse le nombre de coups autorise. Vous etes manifestement minable ! !");
                 break;
             }
             System.out.println("\n"+"Veuillez choisir un coup : L pour une ligne a activer, C pour une colonne et D pour une diagonale :");
@@ -65,7 +65,7 @@ public class Partie {
             }
             switch (cas) {
                 case 'L' :
-                    System.out.println("\n"+"Entrez le numero de la ligne a activer :");
+                    System.out.println("\n"+"Entrez le numero de la ligne a activer et on se depeche :");
                     int numligne = sc.nextInt();
                     while (numligne < 0 || numligne > this.grille.nbLignes - 1) {
                         System.out.println("\n"+"Veuillez reessayer :");
@@ -109,10 +109,9 @@ public class Partie {
                             System.out.println("\n"+"Nombre de coups realises : "+nbCoups);
                             break;
                     }
-        
             }
         }
-        if (nbCoups < niv) {
+        if (nbCoups <= niv && this.grille.cellulesToutesEteintes() == true) {
             System.out.println(this.grille);
             System.out.println("\n"+"Bravo ! Vous avez gagne en "+nbCoups+" coups !");
         }
